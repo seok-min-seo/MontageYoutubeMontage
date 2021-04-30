@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.androidnetworking.AndroidNetworking
 import com.androidnetworking.error.ANError
 import com.androidnetworking.interfaces.ParsedRequestListener
-import com.sukddaksoftware.montageyoutube2t.ViewModel.MainViewModel
+import com.sukddaksoftware.montageyoutube2t.viewModel.MainViewModel
 import com.sukddaksoftware.montageyoutube2t.Adapter.YoutubeAdapter
 import com.sukddaksoftware.montageyoutube2t.Models.Item
 import com.sukddaksoftware.montageyoutube2t.Models.Youtube

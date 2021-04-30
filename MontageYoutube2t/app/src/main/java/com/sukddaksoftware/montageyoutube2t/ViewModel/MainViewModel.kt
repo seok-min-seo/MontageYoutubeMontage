@@ -1,4 +1,4 @@
-package com.sukddaksoftware.montageyoutube2t.ViewModel
+package com.sukddaksoftware.montageyoutube2t.viewModel
 
 
 import androidx.lifecycle.MutableLiveData
