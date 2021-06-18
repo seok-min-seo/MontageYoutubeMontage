@@ -5,7 +5,7 @@
     <data>
         <variable
             name="MainViewModel"
-            type="com.sukddaksoftware.montageyoutube2t.ViewModel.MainViewModel" />
+            type="com.sukddaksoftware.montageyoutube2t.viewModel.MainViewModel" />
     </data>
 <FrameLayout
     android:layout_width="match_parent"
