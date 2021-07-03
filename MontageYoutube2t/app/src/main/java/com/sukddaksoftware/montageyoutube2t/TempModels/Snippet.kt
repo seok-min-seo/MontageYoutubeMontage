@@ -1,29 +1,23 @@
-package com.sukddaksoftware.montageyoutube2t.Models
+package com.sukddaksoftware.montageyoutube2t.TempModels
 
 
-import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
 data class Snippet(
     @SerializedName("channelId")
-    @Expose
     val channelId: String,
     @SerializedName("channelTitle")
-    @Expose
     val channelTitle: String,
     @SerializedName("description")
-    @Expose
     val description: String,
-    @SerializedName("localized")
-    @Expose
-    val localized: Localized,
+    @SerializedName("liveBroadcastContent")
+    val liveBroadcastContent: String,
+    @SerializedName("publishTime")
+    val publishTime: String,
     @SerializedName("publishedAt")
-    @Expose
     val publishedAt: String,
     @SerializedName("thumbnails")
-    @Expose
     val thumbnails: Thumbnails,
     @SerializedName("title")
-    @Expose
     val title: String
 )

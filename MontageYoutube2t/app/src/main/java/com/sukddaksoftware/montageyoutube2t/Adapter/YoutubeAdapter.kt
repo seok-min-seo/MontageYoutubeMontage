@@ -1,37 +1,70 @@
 package com.sukddaksoftware.montageyoutube2t.Adapter
 
+import android.content.ContentValues.TAG
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
-import com.google.android.youtube.player.YouTubeThumbnailView
+import com.squareup.picasso.Callback
 import com.squareup.picasso.Picasso
-import com.sukddaksoftware.montageyoutube2t.Models.Item
+import com.sukddaksoftware.montageyoutube2t.Models.VideoYT
 import com.sukddaksoftware.montageyoutube2t.R
 import kotlinx.android.synthetic.main.item_youtube.view.*
+import java.lang.Exception
 
 
 class YoutubeAdapter(
-        val itemList : MutableList<Item>
+    context: Context,
+    videoList : MutableList<VideoYT>
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
-    private lateinit var context: Context
 
+    lateinit var context : Context
+    lateinit var videoList: MutableList<VideoYT>
 
 
     class YoutubeViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        lateinit var thumbnailView : YouTubeThumbnailView
+        lateinit var thumbnailView : ImageView
         lateinit var youtubeTitle: TextView
         lateinit var youtubeDescription:TextView
 
         init{
 
-            thumbnailView = itemView.findViewById<View>(R.id.youtubeThumbnail) as YouTubeThumbnailView
+            thumbnailView = itemView.findViewById<View>(R.id.youtubeThumbnail) as ImageView
             youtubeTitle = itemView.findViewById<View>(R.id.youtubeTitle) as TextView
             youtubeDescription = itemView.findViewById<View>(R.id.youtubeDescription) as TextView
         }
+
+        fun setData(data: VideoYT)
+        {
+
+            val getJudul : String = data.Snippet.title
+            val getTgl : String = data.Snippet.publishedAt
+            val getThumb : String = data.Snippet.thumbnails.medium.toString()
+
+            youtubeTitle.setText(getJudul)
+            youtubeDescription.setText(getTgl)
+            Picasso.get()
+                .load(getThumb)
+                .placeholder(R.mipmap.ic_launcher)
+                .fit()
+                .centerCrop()
+                .into(thumbnailView, object : com.squareup.picasso.Callback{
+                    override fun onSuccess() {
+                        Log.d(TAG,"Thumbnail berhasil ditampilkan")
+                    }
+
+                    override fun onError(e: Exception?) {
+                        Log.e(TAG, "Thumbnail error: ", e)
+                    }
+
+                })
+
+        }
+
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): YoutubeViewHolder {
        context = parent.context
@@ -40,26 +73,11 @@ class YoutubeAdapter(
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        val data = itemList[position]
-        val thumbnailView = holder.itemView.youtubeThumbnail
-        val youtubeTitle = holder.itemView.youtubeTitle
-        val youtubeDescription = holder.itemView.youtubeDescription
-
-        val Title = "${data.snippet.title}"
-        val Description = "${data.snippet.description}"
-        youtubeTitle.text = Title
-        youtubeDescription.text = Description
-
-        Picasso.get()
-                .load("${data.snippet.thumbnails}")
-                .into(thumbnailView)
-
-        holder.itemView.setOnClickListener{
-            Toast.makeText(context, Title, Toast.LENGTH_SHORT).show()
-        }
+        val videoYT : VideoYT = videoList.get(position)
+        val yth : YoutubeViewHolder = holder as YoutubeViewHolder
     }
 
-    override fun getItemCount() = itemList.size
+    override fun getItemCount() = videoList.size
 
 }
 

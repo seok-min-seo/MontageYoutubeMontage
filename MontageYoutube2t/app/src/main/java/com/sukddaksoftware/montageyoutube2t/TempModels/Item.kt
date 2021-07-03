@@ -1,20 +1,15 @@
-package com.sukddaksoftware.montageyoutube2t.Models
+package com.sukddaksoftware.montageyoutube2t.TempModels
 
 
-import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
 data class Item(
     @SerializedName("etag")
-    @Expose
     val etag: String,
     @SerializedName("id")
-    @Expose
-    val id: String,
+    val id: Id,
     @SerializedName("kind")
-    @Expose
     val kind: String,
     @SerializedName("snippet")
-    @Expose
     val snippet: Snippet
 )

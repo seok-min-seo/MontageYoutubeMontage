@@ -1,32 +1,21 @@
 package com.sukddaksoftware.montageyoutube2t.Repository
 
 
-import retrofit2.Retrofit
-
 import retrofit2.http.GET
 import retrofit2.http.Query
 
 interface YoutubeService {
 
-    companion object {
+    @GET("youtube/v3/search")
+    suspend fun getYoutubeSearch(
+        @Query("key") key : String = "AIzaSyDyb4PNXyFIpJ-1KzL6UZXL1ONB9qs8zCE",
+        @Query("channelId") channelId : String = "UC7zp0tyUpjR7IiAGb6BQlQQ",
+        @Query("maxResults") maxResults : Int,
+        @Query("order") order : String,
+        @Query("part") part : String
+    ) : Youtube
 
-
-
-        const val BASE_URL = "https://www.googleapis.com/youtube/v3"
-
-        private val retrofit : Retrofit = Retrofit.Builder()
-            .baseUrl(BASE_URL)
-            .build()
-        object Youtubeapi {
-            val youtubeService : YoutubeService by lazy {
-                retrofit.create(YoutubeService::class.java)
-            }
-        }
-   }
-
-    private fun getYoutubeProperties(){
-        Youtubeapi.youtubeService
-    }
 
 
 }
+

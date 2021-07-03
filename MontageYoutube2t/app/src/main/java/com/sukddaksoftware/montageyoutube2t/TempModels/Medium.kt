@@ -1,17 +1,13 @@
-package com.sukddaksoftware.montageyoutube2t.Models
+package com.sukddaksoftware.montageyoutube2t.TempModels
 
 
-import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
-data class Maxres(
+data class Medium(
     @SerializedName("height")
-    @Expose
     val height: Int,
     @SerializedName("url")
-    @Expose
     val url: String,
     @SerializedName("width")
-    @Expose
     val width: Int
 )

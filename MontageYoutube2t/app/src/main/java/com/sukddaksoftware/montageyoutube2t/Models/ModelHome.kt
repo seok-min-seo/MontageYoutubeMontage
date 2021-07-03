@@ -1,14 +1,15 @@
 package com.sukddaksoftware.montageyoutube2t.Models
 
-
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
-data class Localized(
-    @SerializedName("description")
+class ModelHome(
+    @SerializedName("nextPageToken")
     @Expose
-    val description: String,
-    @SerializedName("title")
+    val nextPageToken: String,
+
+    @SerializedName("items")
     @Expose
-    val title: String
+    val items: List<VideoYT>
+
 )
