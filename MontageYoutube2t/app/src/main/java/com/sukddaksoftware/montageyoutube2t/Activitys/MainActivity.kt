@@ -5,13 +5,21 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 
 import android.view.MotionEvent
+import android.view.animation.AlphaAnimation
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
+import android.widget.TextView
 
 import com.sukddaksoftware.montageyoutube2t.R
+import kotlinx.android.synthetic.main.activity_main.*
 
 
-class MainActivity : AppCompatActivity() {
+class MainActivity() : AppCompatActivity() {
 
-    private fun Moving(){
+
+
+
+    private fun Moving() {
         val intent = Intent(this, SecondActivity::class.java)
         startActivity(intent)
         finish()
@@ -20,6 +28,23 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        val textView: TextView = findViewById(R.id.TouchToScreen)
+        val touchToScreen : Animation = AnimationUtils.loadAnimation(this,R.anim.kirakira)
+        textView.startAnimation(touchToScreen)
+        touchToScreen.setAnimationListener(object: Animation.AnimationListener {
+            override fun onAnimationStart(animation: Animation?) {
+
+            }
+
+            override fun onAnimationEnd(animation: Animation?) {
+                textView.startAnimation(touchToScreen)
+            }
+
+            override fun onAnimationRepeat(animation: Animation?) {
+
+            }
+        })
+
 
 
     }
@@ -30,6 +55,6 @@ class MainActivity : AppCompatActivity() {
         return super.onTouchEvent(event)
     }
 
-    }
+}
 
 

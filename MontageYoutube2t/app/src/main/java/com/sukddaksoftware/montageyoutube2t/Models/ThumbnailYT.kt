@@ -19,10 +19,10 @@ class ThumbnailYT(
 
 
 
-    class  MediumThumb {
-        @SerializedName("url")
-        @Expose
-        private lateinit var url : String
+    class  MediumThumb( @SerializedName("url")
+                        @Expose
+                        var url : String) {
+
 
         fun MediumThumb() {
 

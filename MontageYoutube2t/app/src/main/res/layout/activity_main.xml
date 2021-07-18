@@ -4,40 +4,50 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#000000"
     tools:context=".Activitys.MainActivity">
 
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#000000"
-        android:orientation="vertical"
-        >
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="80dp"
+        android:fontFamily="@font/dmc"
+        android:text="몬타그\n유튜브"
+        android:textColor="#FFE500"
+        android:textSize="70dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="100dp"
-            android:text=" Montege\n Youtube\n Montage"
-            android:textColor="#FFE500"
-            android:textSize="70dp"
-            android:fontFamily="@font/dmc"
-            />
+    <TextView
+        android:id="@+id/TouchToScreen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:fontFamily="@font/dmc"
+        android:text="Touch To Screen"
+        android:textColor="#FFE500"
+        android:textSize="40dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView5" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Touch To Screen"
-            android:textSize="40dp"
-            android:textColor="#FFE500"
-            android:layout_marginTop="200dp"
-            android:layout_gravity="center"
-            android:fontFamily="@font/dmc"
-            />
-
-    </LinearLayout>
-
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="165dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="166dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:srcCompat="@drawable/wwws" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
