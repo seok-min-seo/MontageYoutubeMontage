@@ -9,32 +9,11 @@ class ThumbnailYT(
 ) {
 
 
-
-    fun ThumbnailYT(){
-
-    }
-    fun ThumbnailYT(medium : MediumThumb) {
-        this.medium = medium
-    }
-
-
-
-    class  MediumThumb( @SerializedName("url")
-                        @Expose
-                        var url : String) {
-
-
-        fun MediumThumb() {
-
-        }
-
-        fun MediumThumb(url : String) {
-            this.url = url
-        }
-
-
-    }
-
+    class MediumThumb(
+        @SerializedName("url")
+        @Expose
+        var url: String
+    )
 
 
 }

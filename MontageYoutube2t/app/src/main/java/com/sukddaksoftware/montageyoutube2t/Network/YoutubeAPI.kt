@@ -20,6 +20,10 @@ class YoutubeAPI {
 
 
     companion object {
+
+        val v : String = "&v=cU85nqH_LuA%26ab"
+
+
         val BASE_URL : String = "https://www.googleapis.com/youtube/v3/"
         val ONLY_CHANNEL_ID = "UC7zp0tyUpjR7IiAGb6BQlQQ"
         val KEY : String = "key=AIzaSyDyb4PNXyFIpJ-1KzL6UZXL1ONB9qs8zCE"
@@ -29,6 +33,9 @@ class YoutubeAPI {
         val maxResults30 : String = "&maxResults=30"
         val order : String =  "&order=date"
         val part : String = "&part=snippet"
+        val NPT = "&pageToken="
+
+        val videoURL : String = BASE_URL + KEY + v + ChannelID + order + part
 
         val playlist : String ="playlists?"
         val part_playlist : String ="&part=snippet,contentDetails"

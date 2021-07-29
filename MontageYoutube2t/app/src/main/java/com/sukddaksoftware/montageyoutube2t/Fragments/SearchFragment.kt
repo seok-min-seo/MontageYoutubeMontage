@@ -87,5 +87,6 @@ class SearchFragment(
 
         })
 
+
     }
 }

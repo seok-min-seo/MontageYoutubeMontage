@@ -55,6 +55,13 @@ class MainActivity() : AppCompatActivity() {
         return super.onTouchEvent(event)
     }
 
+    override fun onBackPressed() {
+        moveTaskToBack(true);
+        finish();
+        android.os.Process.killProcess(android.os.Process.myPid());
+        super.onBackPressed()
+    }
+
 }
 
 

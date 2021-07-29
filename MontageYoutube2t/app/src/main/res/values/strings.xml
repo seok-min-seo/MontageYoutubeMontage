@@ -1,6 +1,5 @@
 <resources>
-    <string name="app_name">몬타그 유튜브</string>
-    <!-- TODO: Remove or change this placeholder text -->
+    <string name="montageu">몬타그</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="api_key">AIzaSyDyb4PNXyFIpJ-1KzL6UZXL1ONB9qs8zCE</string>
 </resources>

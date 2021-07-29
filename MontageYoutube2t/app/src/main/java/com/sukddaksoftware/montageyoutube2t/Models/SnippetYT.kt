@@ -20,7 +20,4 @@ data class SnippetYT(
     @Expose
     val thumbnails: ThumbnailYT
 
-) {
-
-
-}
+)

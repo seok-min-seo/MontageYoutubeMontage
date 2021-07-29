@@ -10,6 +10,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
+import com.facebook.shimmer.ShimmerFrameLayout
 import com.squareup.picasso.Picasso
 import com.sukddaksoftware.montageyoutube2t.Models.ChannelList
 import com.sukddaksoftware.montageyoutube2t.Models.ModelChannel
@@ -32,6 +34,7 @@ class ProfileFragment() : Fragment(R.layout.fragment_profile) {
     private lateinit var videoCount : TextView
     private lateinit var viewsCount : TextView
     private lateinit var publishedAt : TextView
+    private lateinit var loading1 : ShimmerFrameLayout
 
 
     override fun onCreateView(
@@ -40,6 +43,9 @@ class ProfileFragment() : Fragment(R.layout.fragment_profile) {
         savedInstanceState: Bundle?
     ): View? {
         val view : View = inflater.inflate(R.layout.fragment_profile,container,false)
+
+
+        loading1 = view.findViewById(R.id.shimmerl)
 
         banner = view.findViewById(R.id.Banner)
         logo = view.findViewById(R.id.logo)
@@ -58,6 +64,7 @@ class ProfileFragment() : Fragment(R.layout.fragment_profile) {
     }
 
     private fun getJsonAPI() {
+        loading1.visibility = View.VISIBLE
     val url : String = YoutubeAPI.BASE_URL + YoutubeAPI.CH + YoutubeAPI.KEY +
             YoutubeAPI.IDC + YoutubeAPI.CH_PART
         var data : Call<ModelChannel>? = YoutubeAPI.getChannelInfo()?.getYT(url)
@@ -66,11 +73,13 @@ class ProfileFragment() : Fragment(R.layout.fragment_profile) {
                 override fun onResponse(call: Call<ModelChannel>, response: Response<ModelChannel>) {
                     if(response.errorBody() != null){
                         Log.v(ContentValues.TAG, "onResponse: " + response.body())
+                        loading1.visibility = View.GONE
                     } else {
                         if(response.body() != null) {
                             var mc : ModelChannel? = response.body()
 
                             mc?.items?.let { setData(it.get(0)) }
+                            loading1.visibility = View.GONE
 
                         }
                     }
@@ -79,6 +88,8 @@ class ProfileFragment() : Fragment(R.layout.fragment_profile) {
 
                 override fun onFailure(call: Call<ModelChannel>, t: Throwable) {
                     Log.e(ContentValues.TAG, "onFailure: ", t)
+                    loading1.visibility = View.GONE
+                    Toast.makeText(context,t.message,Toast.LENGTH_SHORT).show()
                 }
 
             })
@@ -130,5 +141,7 @@ class ProfileFragment() : Fragment(R.layout.fragment_profile) {
                 }
 
             })
+        logo.clipToOutline = true
+
     }
 }
