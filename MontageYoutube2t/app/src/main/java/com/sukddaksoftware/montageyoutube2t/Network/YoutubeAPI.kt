@@ -26,7 +26,7 @@ class YoutubeAPI {
 
         val BASE_URL : String = "https://www.googleapis.com/youtube/v3/"
         val ONLY_CHANNEL_ID = "UC7zp0tyUpjR7IiAGb6BQlQQ"
-        val KEY : String = "key=AIzaSyDyb4PNXyFIpJ-1KzL6UZXL1ONB9qs8zCE"
+        val KEY : String = "key=AIzaSyCHJT_26e4c5djLtoN3l-tBqq25iTRrSN8"
         val ChannelID : String = "&channelId=${ONLY_CHANNEL_ID}"
         val sch :String = "search?"
         val maxResults :String = "&maxResults=10"
@@ -35,7 +35,6 @@ class YoutubeAPI {
         val part : String = "&part=snippet"
         val NPT = "&pageToken="
 
-        val videoURL : String = BASE_URL + KEY + v + ChannelID + order + part
 
         val playlist : String ="playlists?"
         val part_playlist : String ="&part=snippet,contentDetails"

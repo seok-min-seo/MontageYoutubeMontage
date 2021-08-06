@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "artifactType": {
+    "type": "APK",
+    "kind": "Directory"
+  },
+  "applicationId": "com.sukddaksoftware.montageyoutube2t",
+  "variantName": "release",
+  "elements": [
+    {
+      "type": "SINGLE",
+      "filters": [],
+      "properties": [],
+      "versionCode": 7,
+      "versionName": "4",
+      "enabled": true,
+      "outputFile": "app-release.apk"
+    }
+  ]
+}

@@ -144,4 +144,5 @@ class ProfileFragment() : Fragment(R.layout.fragment_profile) {
         logo.clipToOutline = true
 
     }
+
 }

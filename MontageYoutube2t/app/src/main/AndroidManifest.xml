@@ -12,7 +12,7 @@
         android:roundIcon="@drawable/ddd"
         android:supportsRtl="true"
         android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar">
-        <activity android:name=".Activitys.YoutubeActivity"></activity>
+        <activity android:name=".Activitys.YoutubeActivity" />
         <activity android:name=".Activitys.SecondActivity" />
         <activity android:name=".Activitys.MainActivity" />
         <activity android:name=".Activitys.SplashActivity">

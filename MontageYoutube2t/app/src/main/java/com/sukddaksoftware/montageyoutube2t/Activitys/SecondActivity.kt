@@ -73,7 +73,12 @@ class SecondActivity : AppCompatActivity() {
         }
     }
 
-
+    override fun onBackPressed() {
+        moveTaskToBack(true);
+        finish();
+        android.os.Process.killProcess(android.os.Process.myPid());
+        super.onBackPressed()
+    }
 
 }
 
